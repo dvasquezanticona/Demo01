@@ -1,0 +1,18 @@
+spring.mvc.view.prefix: /html/
+spring.mvc.view.suffix: .html
+
+#Basic Spring Boot Config for Oracle
+#spring.datasource.url= jdbc:oracle:thin:@proydelbd-scan.intranet.gasnaturalfenosa.com:1521/proydelbdrac_adelta01_online
+#spring.datasource.username=DELTA_MNTO_USR
+#spring.datasource.password=deltamntousr
+#spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+#hibernate config
+#spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect
+
+#Basic Spring Boot Config for Oracle
+spring.datasource.url= jdbc:mysql://localhost/usersdb?autoReconnect=true&useSSL=false
+spring.datasource.username=root
+spring.datasource.password=12345678
+spring.datasource.driver-class-name=oracle.jdbc.
+#hibernate config
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10gDialect

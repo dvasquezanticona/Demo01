@@ -1,0 +1,5 @@
+package com.delta.model;
+
+public class User extends ParentEntity {
+
+}

@@ -1,0 +1,11 @@
+package com.delta.model;
+
+public class User extends ParentEntity {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	 
+}

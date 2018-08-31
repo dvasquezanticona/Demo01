@@ -1,0 +1,5 @@
+package com.delta.dao;
+
+public class UserRepository {
+
+}

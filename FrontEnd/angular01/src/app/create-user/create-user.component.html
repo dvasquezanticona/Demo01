@@ -1,0 +1,83 @@
+<div class="clear" ></div>
+<h1>Crear Usuario</h1>
+<form class="form-horizontal main-form" action="/action_page.php">
+  <div *ngIf="!isValid" class="alert alert-danger">
+    <strong>Alerta</strong> {{message}}
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="firstName"><span class="required">*</span>Primer nombre:</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.firstName" class="form-control" name="firstName" id="firstName" placeholder="Ingrese su primer nombre">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="secondName">Segundo nombre:</label>
+    <div class="col-sm-10">
+      <input type="email" [(ngModel)]="user.secondName"  class="form-control" name="secondName"  id="secondName" placeholder="Ingrese su segundo nombre">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="firstSurname"><span class="required">*</span>Primer apellido:</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.firstSurname" class="form-control" name="firstSurname"  id="firstSurname" placeholder="Ingrese su primer apellido">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="secondSurname">Segundo apellido:</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.secondSurname"  class="form-control" name="secondSurname"  id="secondSurname" placeholder="Ingrese su Segundo apellido">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="phone">Telefono:</label>
+    <div class="col-sm-10">
+      <input type="tel" [(ngModel)]="user.phone"  class="form-control" name="phone"  id="phone" placeholder="Ingrese su Telefono">
+    </div>
+  </div>  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="address"><span class="required">*</span>Dirección:</label>
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="user.address"  class="form-control" name="address"  id="address" placeholder="Ingrese su Dirección">
+    </div>
+  </div>
+
+  <p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" 
+      aria-expanded="false" 
+      aria-controls="collapseExample">
+        Ver Datos de Usuario
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="login"><span class="required">*</span>Login:</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="user.login"  class="form-control" name="login"  id="login" placeholder="Ingrese su Dirección">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-sm-2 col-form-label"><span class="required">*</span>Password</label>
+          <div class="col-sm-10">
+            <input type="password"  [(ngModel)]="userLogin.password" class="form-control" name="password" id="password" placeholder="Password">
+          </div>
+        </div>   
+        <div class="form-group row">
+          <label for="password2" class="col-sm-2 col-form-label"><span class="required">*</span>Password</label>
+          <div class="col-sm-10">
+            <input type="password"  [(ngModel)]="userLogin.password2" class="form-control" name="password2" id="password2" placeholder="Password">
+          </div>
+        </div>     
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" >
+      <button type="submit" (click)="saveOrUpdate()" class="btn btn-primary btn-save">Guardar</button>
+    </div>
+    <div class="col">
+      <button type="submit" (click)="cancelSaveOrUpdate()" class="btn btn-secondary btn-save">Cancelar</button>
+    </div>
+  </div>
+
+</form>

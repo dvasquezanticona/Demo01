@@ -1,0 +1,9 @@
+package com.delta.model;
+
+import java.io.Serializable;
+
+public class ParentEntity  implements Serializable {
+
+	
+	
+}

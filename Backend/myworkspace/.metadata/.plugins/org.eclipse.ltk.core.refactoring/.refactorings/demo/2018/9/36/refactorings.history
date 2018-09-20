@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;isLogin&apos; in &apos;com.prueba.app.login.JwtAuthenticationResponse&apos; to &apos;loginOK&apos;&#x0D;&#x0A;- Original project: &apos;demo&apos;&#x0D;&#x0A;- Original element: &apos;com.prueba.app.login.JwtAuthenticationResponse.isLogin&apos;&#x0D;&#x0A;- Renamed element: &apos;com.prueba.app.login.JwtAuthenticationResponse.loginOK&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;isLogin&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java&lt;com.prueba.app.login{JwtAuthenticationResponse.java[JwtAuthenticationResponse^isLogin" name="loginOK" references="true" setter="false" stamp="1536393958211" textual="false" version="1.0"/>
+</session>

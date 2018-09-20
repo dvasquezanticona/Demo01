@@ -3,6 +3,9 @@ package com.prueba.security.jwtsecurity;
 import com.prueba.app.user.dao.UserRepository;
 import com.prueba.model.User;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 //import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
+	private static final Logger log=(Logger) LogManager.getLogger(CustomUserDetailsService.class);
+	
     @Autowired
     UserRepository userRepository;
 
@@ -23,11 +28,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
         // Let people login with either username or email
+    	log.info("Buscando en base de datos el usuario del login: " + login);
         User user =  userRepository.findByLogin(login);
         if (user==null){
         	new UsernameNotFoundException("User not found with username or email : " + login);
         }
-
+        log.info("Se ha encontrado el " + user.getLogin() + " en la bbdd.");
         return UserPrincipal.create(user);
     }
 

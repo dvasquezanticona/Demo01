@@ -1,5 +1,0 @@
-package com.delta.model;
-
-public class User implements ParentEntity {
-
-}

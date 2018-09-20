@@ -1,7 +1,0 @@
-package com.delta.model;
-
-public class ParentEntity  serializable {
-
-	
-	
-}

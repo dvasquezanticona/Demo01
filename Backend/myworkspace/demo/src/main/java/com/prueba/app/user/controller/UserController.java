@@ -20,6 +20,7 @@ import com.prueba.model.User;
 import com.prueba.util.RestResponse;
 
 @RestController
+//@RequestMapping("/app/user")
 public class UserController {
 
 	private static final Logger log=(Logger) LogManager.getLogger(UserController.class);

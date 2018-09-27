@@ -61,7 +61,9 @@ export class CreateUserComponent implements OnInit {
       console.log('[DVA] create-user-component.saveOrUpdate - Faltan campos por informar.');
       this.message="Los campos con * son obligatorios."
     }
-    sessionStorage.clear();
+    //sessionStorage.clear();
+    //sessionStorage.setItem('user',null);
+    sessionStorage.removeItem('user');
   }
 
   /***
@@ -69,7 +71,9 @@ export class CreateUserComponent implements OnInit {
    * de usuarios.
    */
   public cancelSaveOrUpdate():void{
-    sessionStorage.clear();
+    //sessionStorage.clear();
+    //sessionStorage.setItem('user',null);
+    sessionStorage.removeItem('user');
     this.router.navigate(['/userComponent']);
   }
 }

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { LoginService } from './login.service';
 import { UserModel } from './../model/user.model';
+import { AppSessionService } from '../core/app-session.service';
+import { environment } from '../core/app-const.module';
 
 
 @Component({
@@ -13,8 +15,13 @@ import { UserModel } from './../model/user.model';
 })
 export class LoginComponent implements OnInit {
 
+  private ses: AppSessionService;
+  
   constructor(private loginService:LoginService, private router : Router) {
-    console.log("Construimos un objeto LoginComponent...");
+    console.log("[DVA] Constructor del LoginComponent...");
+    console.log("[DVA] Inicializando de la aplicación. Preparando token de inicio.");
+    this.ses=new AppSessionService;
+    this.ses.setFlagInicioSession(environment.TOKEN_SIN_SESSION);    
   }
 
   ngOnInit() {
@@ -31,12 +38,12 @@ export class LoginComponent implements OnInit {
    */
   login() : void {
 
-    console.log("Usuario y password: " + this.username + " - " + this.password );
+    console.log("[DAV] Usuario y password: " + this.username + " - " + this.password );
 
     if (this.username==null || this.password==null || this.username == '' || this.password == ''){
       this.isValid=false;
       this.message="Bro!!! Debes ingresar un usuario y password."
-      console.log("Bro!! Debes ingresar un usuario y password." );
+      console.log("[DVA] Bro!! Debes ingresar un usuario y password." );
       return;
     }
 
@@ -45,14 +52,15 @@ export class LoginComponent implements OnInit {
     this.usuarioLogin.login=this.username;
     this.usuarioLogin.password=this.password;
     //Invocamos al servicio de login
-    console.log("Enviamos al el servicio el usuario y passwword.");
+    console.log("[DVA] Enviamos al el servicio el usuario y passwword.");
     this.loginService.login(this.usuarioLogin).subscribe(respuesta=>{
       if (respuesta.loginOK){
         //Si todo ha ido bien Navegamos al home
-        console.log("El servicio de login devuelve un TRUE. Login correcto. " + respuesta.tokenType + " El token es: " + respuesta.accessToken);
+        console.log("[DVA] El servicio de login devuelve un TRUE. Login correcto. " + respuesta.tokenType + " Guardamos el token en la session: " + respuesta.accessToken);
+        this.ses.setFlagInicioSession(respuesta.accessToken); 
         this.router.navigate(["home"]);
       }else{
-        console.log("El servicio de login devuelve un FALSE.");
+        console.log("[DVA] El servicio de login devuelve un FALSE.");
         this.isValid=false;
         this.message="Credenciales incorrectas Bro!!. El usuario/password es admin/123456"
       }

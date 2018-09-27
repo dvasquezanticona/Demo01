@@ -59,7 +59,7 @@ public class UserController {
 		log.info("Inicio del metodo getUsers()",this.getClass().getName() );
 		return this.userService.findAll();
 	} 
-/*
+
 	@RequestMapping(name="/deleteUser",method=RequestMethod.POST)
 	public RestResponse deleteUser(@RequestBody String userJson) throws Exception{
 		
@@ -83,7 +83,7 @@ public class UserController {
 		log.info("Operación existosa.",this.getClass().getName() );
 		return new RestResponse(HttpStatus.ACCEPTED.value(), "Operacion exitosa.");
 	}
-	*/
+	
 	
 	/**
 	 * Método para validar un objeto usuario.

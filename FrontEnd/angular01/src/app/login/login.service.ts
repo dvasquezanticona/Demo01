@@ -13,17 +13,18 @@ import { environment } from '../core/app-const.module';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { 
-    console.log("Iniciando constructor del login service.");
-  }
 
+  constructor(private http: HttpClient) { 
+    console.log("[DVA] Constructor del login service.");
+  }
   
   login(loginObj: UserModel): Observable<RestResponseLogin> {
-    console.log("Invocando al apirest desde el servicio.");
+    console.log("[DVA] Invocando al apirest desde el servicio.");
     return this.http.post<RestResponseLogin>( environment.URL_WEBSERVICE_REST + '/login',JSON.stringify(loginObj)).pipe(
       catchError(this.handleErrorObservable)
     );
   }
+
 /*
   logout(): Observable<Boolean> {
     //return this.http.post(this.basePath + 'logout', {}).map(this.extractData);
@@ -35,8 +36,9 @@ export class LoginService {
     return body;
   }
 */
+
   private handleErrorObservable (error: Response | any) {
-    console.log("Mensaje de error desde el handleErrorObservable. Devolvemos un Observable.throw. " + error.message + " - " + error.status)
+    console.log("[DVA] Mensaje de error desde el handleErrorObservable. Devolvemos un Observable.throw. " + error.message + " - " + error.status)
 
     if (error.status == 0){
       return throwError("El servicio no está disponible");

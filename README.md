@@ -4,6 +4,52 @@ Autor: 		Daniel Andres V.
 Descpión: 	Planteamiento de los CUS del sistema (Casos de uso)
 */
 
+----------------------------------------------------------------------------------
+Sistema de registro de documentos (ingresos y egresos).
+----------------------------------------------------------------------------------
+DESCRIPCIÓN GENERAL BCDocument:
+El sistema permite registrar al usuario (operario) documentos de ingreso/egresos los cuales se guardarán en la base de datos para luego ser consultados por el mismo usuario o por un administrador de la empresa junto con las sucursales desde las que se ingresan dichos documentos. El objetivo es que por cada empresa se visualice un informe de operarios con su respectivo total de ingresos/egresos en un rango de fechas y también se realice el informe detallado por cada empresa. La jerarquía es un usuario master configure una empresa y añada los usuarios de dicha empresa (como mínimo a los administradores) se podría rellenar una plantilla e importar los usuarios de manera masiva. Los usuarios podrán añadir sus documentos (indicando el número de documento, tipo de documento, articulo/concepto/descripción del item, cantidad, precio unitario, total, total de impuestos aplicado puede ser IGV, IVA, ETC..). El gerente debera realizar la apertura del periodo contable y el cierre del mismo ya que cada documento ingresado pertenecerá a un determinado periodo, cuando el gerente cierre el periodo los documentos se marcarán como validados indicando el código del periodo de esta manera los documentos ya no podrán ser modificados. Antes del cierre se puede modificar/anular los documentos. El usuario podrá realizar la búsqueda de sus documentos y visualizar sus detalles. El gerente podrá visualizar todos los documentos de las sucursales y empleados de su empresa. Los informes por pantalla deberán utilizar paginación.
+
+
+--------------
+ENTIDADES
+--------------
+Usuario
+Tipo de usuario (operario, master, administrador)
+Impuesto
+Documento (el documento tiene los siguientes estados: creado, confirmado, anulado o finalizado)
+Detalle Documento
+Estado de documento
+Empresa
+Sucursal
+Informe de ingresos por operarios
+Informe de ingresos/egresos por sucursales
+Periodo contable
+
+--------------
+TABLAS DEL SISTEMA
+--------------
+Usuario
+TipoUsuario (operario, master, administrador) => revisar un tutorial sobre permisos y perfiles.
+Impuesto
+Documento
+DetalleDocumento
+ValoresMaestros
+Empresa
+Sucursal
+PeriodoContable
+
+-------------------------
+CUS
+-------------------------
+CUS001.00.00 Inicio de session
+CUS002.00.00 Mantenimiento de usuarios
+CUS003.00.00 Registrar de documentos
+CUS004.00.00 Modificación de documentos
+CUS005.00.00 Anulación de documentos
+CUS006.00.00 Inicio de periodo contable
+CUS007.00.00 Cierre de periodo contable
+CUS008.00.00 Consulta e informes
 
 ----------------------------------------------------------------------------------
 CUS001.00.00 Inicio de session
